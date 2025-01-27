@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
+
 @app.route('/')
 def index():
     return render_template('index.html', count=None)
@@ -16,8 +17,7 @@ def count():
     for i in l:
         if tobefound.lower() in i.lower():
             c += i.count(tobefound)
-        # return render_template('index.html', count=c, strings=strings)
     return render_template('index.html', count=c, tobefound=tobefound, strings=strings)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)  # Specify port 8080
